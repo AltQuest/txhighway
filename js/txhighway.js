@@ -73,6 +73,8 @@ let audioMotorcycle = null,
 	audioMercy = null,
 	audioRide = null,
 	audioHodlgang1 = null,
+	audioBillionaire1 = null,
+	audioBillionaire2 = null,
 	audioChaChing = null,
 	audioLaCucaracha = null,
 	audioSpam = null,
@@ -266,6 +268,8 @@ function init(){
 	loadSound("assets/audio/mercy-6s.mp3", "mercy");
 	loadSound("assets/audio/ride-dirty-7s.mp3", "ride");
 	loadSound("assets/audio/hodlgang1.mp3", "hodlgang1");
+	loadSound("assets/audio/billionaire1.mp3", "billionaire1");
+	loadSound("assets/audio/billionaire2.mp3", "billionaire2");
 	loadSound("assets/audio/cha-ching.mp3", "cha-ching")
 	loadSound("assets/audio/la-cucaracha.mp3", "la-cucaracha");
 	loadSound("assets/audio/spam.mp3", "spam");
@@ -672,7 +676,7 @@ function addSounds(carType){
 	}
 
 	if (carType == carLambo){
-		var songs = [audioMercy, audioRide, audioHodlgang1]
+		var songs = [audioMercy, audioRide, audioHodlgang1, audioBillionaire1, audioBillionaire2]
 		let randSong = songs[Math.floor(Math.random()*songs.length)];
 			playSound(randSong);
 	}
@@ -745,6 +749,10 @@ function loadSound(url, sound){
 				audioRide = buffer;
 			} else if (sound == "hodlgang1"){
 				audioHodlgang1 = buffer;
+			} else if (sound == "billionaire1"){
+				audioBillionaire1 = buffer;
+			} else if (sound == "billionaire2"){
+				audioBillionaire2 = buffer;
 			} else if (sound == "cha-ching"){
 				audioChaChing = buffer;
 			} else if (sound == "la-cucaracha"){
