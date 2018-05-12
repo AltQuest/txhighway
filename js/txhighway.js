@@ -224,7 +224,7 @@ function init(){
 	carXLargeCash.src = "assets/sprites/bcash-xlarge.png";
 	carWhaleCash.src = "assets/sprites/bcash-whale.png";
 	carUserCash.src = "assets/sprites/tx-taxi.png"; 
-	carSatoshiBones.src = "assets/sprites/bones.png";
+	carSatoshiBones.src = "assets/sprites/bcash-small-med_long.png";
 
 	//core vehicles
 	carMicroCore.src = "assets/sprites/bitcoin-micro.png";
@@ -271,7 +271,7 @@ function init(){
 	loadSound("assets/audio/spam.mp3", "spam");
 	loadSound("assets/audio/allspam.mp3", "allspam");
 	loadSound("assets/audio/horns.mp3", "horns");
-	loadSound("assets/audio/evil-laugh.mp3", "laugh");
+	loadSound("assets/audio/horses.mp3", "laugh");
 	loadSound("assets/audio/starman1.mp3", "starman1");
 	loadSound("assets/audio/starman2.mp3", "starman2");
 	loadSound("assets/audio/starman3.mp3", "starman3");
