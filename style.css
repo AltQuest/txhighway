@@ -471,37 +471,111 @@ margin:15px 0;display:block;
   z-index: -1;
   font-family: 'Lato', sans-serif;
 }
-.lane-size.one {
+.lane-size.one-bitcoin {
   top: 15%;
 }
-.lane-size.two {
+.lane-size.two-bitcoin {
   top: 22%;
 }
+
+.lane-size.one {
+  top: 45%;
+}
+.lane-size.two {
+  top: 47%;
+}
 .lane-size.three {
-  top: 29%;
-}
-.lane-size.four {
-  top: 36%;
-}
-.lane-size.five {
-  top: 42%;
-}
-.lane-size.six {
   top: 49%;
 }
+.lane-size.four {
+  top: 51%;
+}
+.lane-size.five {
+  top: 53%;
+}
+.lane-size.six {
+  top: 55%;
+}
 .lane-size.seven {
-  top: 56%;
+  top: 57%;
 }
 .lane-size.eight {
-  top: 62%;
+  top: 59%;
 }
-.lane-size.one-core {
-  top: 76%;
+.lane-size.nine {
+  top: 61%;
 }
-.lane-size.two-core {
+.lane-size.ten {
+  top: 63%;
+}
+.lane-size.eleven {
+  top: 65%;
+}
+.lane-size.twelve {
+  top: 67%;
+}
+.lane-size.thirteen {
+  top: 69%;
+}
+.lane-size.fourteen {
+  top: 71%;
+}
+.lane-size.fifteen {
+  top: 73%;
+}
+.lane-size.sixteen {
+  top: 75%;
+}
+.lane-size.seventeen {
+  top: 77%;
+}
+.lane-size.eighteen {
+  top: 79%;
+}
+.lane-size.nineteen {
+  top: 81%;
+}
+.lane-size.twenty {
   top: 83%;
-  text-decoration: line-through;
 }
+.lane-size.twentyone {
+  top: 85%;
+}
+.lane-size.twentytwo {
+  top: 87%;
+}
+.lane-size.twentythree {
+  top: 89%;
+}
+.lane-size.twentyfour {
+  top: 91%;
+}
+.lane-size.twentyfive {
+  top: 93%;
+}
+.lane-size.twentysix {
+  top: 95%;
+}
+.lane-size.twentyseven {
+  top: 97%;
+}
+.lane-size.twentyeight {
+  top: 99%;
+}
+.lane-size.twentynine {
+  top: 101%;
+}
+.lane-size.thirty {
+  top: 103%;
+}
+.lane-size.thirtyone {
+  top: 105%;
+}
+.lane-size.thirtytwo {
+  top: 107%;
+}
+
+
 .block {
   position: fixed;
   top: 81%;
@@ -521,6 +595,64 @@ margin:15px 0;display:block;
   background-position: right;
 }
 
+.fork {
+  position: fixed;
+  top: 81%;
+  z-index: -1;
+  background: url('assets/bg/fork.png') no-repeat;
+  background-size: auto 70%;
+  width: 100%;
+  height: 5%;
+  background-repeat: no-repeat space;
+
+}
+}
+.fork.one {
+  top: 45%;
+  left: 155px;
+}
+.fork.two {
+  top: 42%;
+  right: 255px;
+  background-position: right;
+}
+.fork.three {
+  top: 53%;
+  left: 320px;
+}
+.fork.four {
+  top: 66%;
+  right: 413px;
+  background-position: right;
+}
+.fork.five {
+  top: 71%;
+  left: 369px;
+}
+.fork.six {
+  top: 62%;
+  right: 502px;
+  background-position: right;
+}
+.fork.seven {
+  top: 90%;
+  left: 536px;
+}
+.fork.eight {
+  top: 88%;
+  right: 122px;
+  background-position: right;
+}
+.fork.nine {
+  top: 77%;
+  left: 222px;
+}
+.fork.ten {
+  top: 58%;
+  right: 284px;
+  background-position: right;
+
+}
 .caution {
   position: fixed;
   z-index: 2;
@@ -539,31 +671,81 @@ margin:15px 0;display:block;
   background-position-x: right;
 }
 
-.no2x {
+.pothole {
   position: fixed;
-  z-index: 2;
-  background: url('assets/bg/no2x.png') no-repeat;
+  z-index: -2;
+  background: url('assets/bg/pothole.png') no-repeat;
+  background-size: contain;
+  width: 100%;
+  height: 4%;
+  top: 81.5%;
+}
+.pothole.one {
+  top: 65.5%;
+  left: 120px;
+}
+.pothole.two {
+  top: 77.5%;
+  right: 40px;
+  background-position-x: right;
+}
+.pothole.three {
+  top: 48.5%;
+  left: 620px;
+}
+.pothole.four {
+  top: 55.5%;
+  right: 90px;
+  background-position-x: right;
+}
+.pothole.five {
+  top: 71.5%;
+  left: 320px;
+}
+.pothole.six {
+  top: 82.5%;
+  right: 440px;
+  background-position-x: right;
+}
+.pothole.seven {
+  top: 43.5%;
+  left: 340px;
+}
+.pothole.eight {
+  top: 75.5%;
+  right: 600px;
+  background-position-x: right;
+}
+.forkAhead {
+  position: fixed;
+  z-index: -1;
+  background: url('assets/bg/forkahead.png') no-repeat;
   background-size: contain;
   width: 100%;
   height: 6.67%;
   top: 80.01%;
 }
 
-.no2x.one {
+.forkAhead.one {
   left: 105px;
+  top: 76.01%;
+
 }
 
-.no2x.two {
+.forkAhead.two {
   right:125px;
+  top: 46.01%;
   background-position-x: right;
 }
 
 
-.no2x.three {
+.forkAhead.three {
+  top: 55.01%;
   left: 215px;
 }
 
-.no2x.four {
+.forkAhead.four {
+  top: 67.01%;
   right:225px;
   background-position-x: right;
 }
@@ -607,7 +789,7 @@ margin:15px 0;display:block;
   content:"";
   width:50%;
   height:100%;
-  background:rgba(0,0,0,0.05);
+  background:rgba(0,0,0,0);
   z-index:9;
   position:absolute;
   top:0;
@@ -633,17 +815,17 @@ margin:15px 0;display:block;
 }
 
 .fees-bch {
-    top: 11.5%;
-    height: 52.36%;
+    top: 36.5%;
+    height: 100%;
     width:36px;
     right: 5%;
     
 }
 
 .fees-toll.fees-btc, .fees-btc {
-bottom: 11%;
+top: 13%;
 width: 36px;
-height: 13.34%;
+height: 8.34%;
 right:5%;
 background:#2e2e2e;
 }
@@ -712,8 +894,8 @@ background:#2e2e2e;
     border-left:0;
     box-shadow:none;
     width:28px;
-    border-width:3px 2px 3px 0;
-    border-radius: 0 10px 10px 0;
+    border-width:3px 2px 0 0;
+    border-radius: 0 3px 3px 0;
     }
     .fees-toll:before {height:50px; top:55%; width:50px;}
     .fees-toll:after {content:none;}
@@ -794,13 +976,16 @@ background:#2e2e2e;
 
 .ln {
   position:absolute;
-  bottom:0px;
+  top: 27%;
   left:0;
   width:100%;
-  height:13%;
-  width:73%;
+  height:10%;
+  width:100%;
   background:url('assets/bg/ln.png') no-repeat;
   background-size: contain;
+  background-repeat: repeat-x;
+  background-color: #149347;
+  z-index: -100;
 }
 .core-mode {
   display:none;
@@ -882,19 +1067,19 @@ span.divider {
   width: 100%;
   height: 6.67%;
   position: absolute;
-  top: 66.67%;
+  top: 36.00%;
   left: 0;
-  z-index: 8;
+  z-index: 0;
 }
 
 .road-bg {
   background:#9EA0A3;
   position:absolute;
-  height:53.36%;
+  height:55.36%;
   width:100%;
-  top:13.34%;
+  bottom:0%;
   left:0;
-  z-index:-2;
+  z-index:-3;
 }
 
 .road-bg-bs {
@@ -902,29 +1087,42 @@ span.divider {
   position:absolute;
   height:13.34%;
   width:100%;
-  bottom:13.34%;
+  top:13.34%;
   left:0;
-  z-index:-2;
-}
-
-.bitcoin-cash {
-  background: url('assets/bg/bitcoin-cash-logo_whitebg.png') no-repeat center 33%;
-  background-size: 22.5%;
-  height: 53.36%;
-  width: 100%;
-  position: absolute;
-  top: 13.34%;
-  left: 0;
-  z-index: -1;
+  z-index:-3;
 }
 
 
-.bitcoin-cash:before {
+.grass {
   content: "";
   width: 100%;
   height: 13.34%;
   background: #/*149347*/;
   background: #149347 url('assets/bg/divider.png') repeat-x;
+  background-size: 100% 40%;
+  background-position:100% 127%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  border-bottom:2px solid #666;
+  
+}
+
+.bcash {
+  background: url('assets/bg/bcash-logo.png') no-repeat center 33%;
+  background-size: 8%;
+  height: 5.36%;
+  width: 100%;
+  position: absolute;
+  bottom: 33.34%;
+  left: 0;
+  z-index: -1;
+}
+
+.bcash:before {
+  content: "";
+  height: 13.34%;
   background-size: 100% 40%;
   background-position:100% 127%;
   position: fixed;
@@ -947,60 +1145,64 @@ span.divider {
   z-index:-2;
 }
 
-.lane.one {
-  top:19.67%;
+.lane.bitcoin {
+  top:20%;
 }
 
-.lane.two {
+
+.lane.one {
   top:26.67%;
 }
 
-.lane.three {
+/*
+.lane.two {
   top:33.34%;
 }
 
-.lane.four {
+.lane.three {
   top:40.01%;
 }
 
-.lane.five {
+.lane.four {
   top:46.68%;
 }
 
-.lane.six {
+.lane.five {
   top:53.35%;
 }
 
-.lane.seven {
+.lane.six {
   top:60.02%;
 }
 
-.lane.core {
-  top:79.75%;
+.lane.seven {
+  top:76.67%;
 }
+*/
 
 
 .bs {
   /*background: #9EA0A3 url(assets/bg/bs.png) no-repeat center 0;*/
-    background: url(assets/bg/core.png) no-repeat center top;
-  background-size: auto 50%;
+    background: url(assets/bg/bitcoin.png) no-repeat center top;
+  background-size: auto 40%;
   height: 13.34%;
   width: 100%;
   position: fixed;
-  bottom: 13.34%;
+  top: 14.34%;
   left: 0;
   z-index: -1;
 }
 
-.road-sign.cash-road-sign  {
+.core-road-sign.road-sign {
 /*   left:330px;
   right:auto; */
   bottom:auto;
   top: 2%;
 }
 
-.core-road-sign.road-sign {
-  bottom:2%;
+.road-sign.cash-road-sign  {
+  top:87%;
+  bottom: 95;
 }
 
 .road-sign {
@@ -1035,12 +1237,12 @@ span.divider {
   color: #245A35;
   text-transform: uppercase;
   font-family: 'Lato', sans-serif;
-  font-size: 0.7em;
+  font-size: 0.6em;
   background: #fff;
   border-radius: 3px;
   line-height: 1;
   padding: 2px;
-  width: 75%;
+  width: 65%;
   position: absolute;
   right: 10px;
   top: 7px;
@@ -1173,8 +1375,8 @@ span.divider {
 
 .whitepaper {
   position:absolute;
-  bottom:27.5%;
-  left:1%;
+  top:1%;
+  right:1%;
   z-index:9;
   }
 .whitepaper i {
@@ -1193,7 +1395,7 @@ span.divider {
   border-bottom:1px solid #999;
   position:absolute;
   z-index:11;
-  bottom:28.5%;
+  top:34.5%;
   left:40%;
   border-radius:3px;
 }
@@ -1246,7 +1448,7 @@ span.divider {
 }
 
 .adspot.ad-five {
-  left:35%;
+  left:25%;
   bottom:88.5%;
 }
 
@@ -1869,13 +2071,14 @@ input[type=range]:focus::-ms-fill-upper {
     }
 
     .whitepaper{
-      left: 10%;
+      right: 1%;
+      top: 1%;
     }
     .fees-toll.fees-btc, .fees-btc {border:0; right:8%;}
   }
 
   @media only screen and (orientation: portrait){
-    .bitcoin-cash, .bs {
+    .bcash, .bs {
       background-size: auto 50% !important;
     }
   }
@@ -1897,7 +2100,7 @@ input[type=range]:focus::-ms-fill-upper {
   }
 
   
-  .bitcoin-cash {
+  .bcash {
     background-position:50% 60%;
   }
   
@@ -1952,7 +2155,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 @media screen and (max-width: 600px) and (orientation: portrait) {
 
-    .bitcoin-cash {
+    .bcash {
       background-size: auto 40% !important;
       background-position:42.5% 65%;
 
@@ -2164,11 +2367,7 @@ input[type=range]:focus::-ms-fill-upper {
     max-height:25px;
   }
 
-  .ln {
-    background-size: cover;
-    background-position: 0 0;
-    width:100%;
-  }
+ 
   .block,.caution {
     display:none;
   }

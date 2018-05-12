@@ -25,7 +25,7 @@
   <meta name="og:url" content="http://txhighway.cash/">
   <meta name="og:site_name" content="TX Highway">
   <meta name="og:type" content="website">
-  <link href="style.min.css?v=1.25" rel="stylesheet" type="text/css">
+  <link href="style.css" rel="stylesheet" type="text/css">
     <!-- <link href="style.css?v=1.2" rel="stylesheet" type="text/css"> -->
   <link rel="author" href="humans.txt">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -68,6 +68,10 @@
   <div id="page">
 
     <canvas id="renderCanvas"></canvas>
+    <span class="lane-size one-bitcoin">1mb</span>
+    <span class="lane-size two-bitcoin">2mb</span>
+    <div class="ln"></div>
+    <span class="lane-size ln">LIGHTNING EXPRESS</span>
     <span class="divider"></span>
     <span class="lane-size one">1mb</span>
     <span class="lane-size two">2mb</span>
@@ -77,9 +81,57 @@
     <span class="lane-size six">6mb</span>
     <span class="lane-size seven">7mb</span>
     <span class="lane-size eight">8mb</span>
-    <span class="lane-size one-core">1mb</span>
-    <span class="lane-size two-core">2mb</span>
+    <span class="lane-size nine">9mb</span>
+    <span class="lane-size ten">10mb</span>
+    <span class="lane-size eleven">11mb</span>
+    <span class="lane-size twelve">12mb</span>
+    <span class="lane-size thirteen">13mb</span>
+    <span class="lane-size fourteen">14mb</span>
+    <span class="lane-size fifteen">15mb</span>
+    <span class="lane-size sixteen">16mb</span>
+    <span class="lane-size seventeen">17mb</span>
+    <span class="lane-size eighteen">18mb</span>
+    <span class="lane-size nineteen">19mb</span>
+    <span class="lane-size twenty">20mb</span>
+    <span class="lane-size twentyone">21mb</span>
+    <span class="lane-size twentytwo">22mb</span>
+    <span class="lane-size twentythree">23mb</span>
+    <span class="lane-size twentyfour">24mb</span>
+    <span class="lane-size twentyfive">25mb</span>
+    <span class="lane-size twentysix">26mb</span>
+    <span class="lane-size twentyseven">27mb</span>
+    <span class="lane-size twentyeight">28mb</span>
+    <span class="lane-size twentynine">29mb</span>
+    <span class="lane-size thirty">30mb</span>
+    <span class="lane-size thirtyone">31mb</span>
+    <span class="lane-size thirtytwo">32mb</span>
+    <span class="forkAhead one"></span>
+    <span class="forkAhead two"></span>
+    <span class="forkAhead three"></span>
+    <span class="forkAhead four"></span>
+
     <span class="block one"></span>
+    <span class="fork one"></span>
+    <span class="fork two"></span>
+    <span class="fork three"></span>
+    <span class="fork four"></span>
+    <span class="fork five"></span>
+    <span class="fork six"></span>
+    <span class="fork seven"></span>
+    <span class="fork eight"></span>
+    <span class="fork nine"></span>
+    <span class="fork ten"></span>
+
+    <span class="pothole one"></span>
+    <span class="pothole two"></span>
+    <span class="pothole three"></span>
+    <span class="pothole four"></span>
+    <span class="pothole five"></span>
+    <span class="pothole six"></span>
+    <span class="pothole seven"></span>
+    <span class="pothole eight"></span>
+
+    <!--
     <span class="block two"></span>
     <span class="caution one"></span>
     <span class="caution two"></span>
@@ -87,8 +139,7 @@
     <span class="no2x two"></span>
     <span class="no2x three"></span>
     <span class="no2x four"></span>
-
-    <div class="ln"></div>
+    -->
 
     <div class="fees-bch fees-toll">
       <span class="avg rotate">Avg Fees (100 tx)</span>
@@ -103,7 +154,8 @@
       <span id="fees-btc" class="rotate">$0</span>
     </div>
 
-    <div class="bitcoin-cash"></div>
+    <div class="bcash"></div>
+    <div class="grass"></div>
     <div class="bs"></div>
     <div class="road-bg"></div>
     <div class="road-bg-bs"></div>
@@ -115,7 +167,7 @@
     <div class="lane six"></div>
     <div class="lane seven"></div>
 
-    <div class="lane core"></div>
+    <div class="lane bitcoin"></div>
 
 
     <div class="title">
@@ -204,19 +256,19 @@
             </div>
             <div class="col-6">
               <fieldset>
-                <img src="assets/bch.png" class="logo-label" alt="Bitcoin Cash">
+                <img src="assets/bch.png" class="logo-label" alt="Bcash">
                 <label>
-                  <i class="fa fa-search" aria-hidden="true"></i> Bitcoin Cash Address</label>
-                <input id="cash-address-input" placeholder="Input BCH Wallet Adddress" size="34" type="text" />
+                  <i class="fa fa-search" aria-hidden="true"></i> Bcash Address</label>
+                <input id="cash-address-input" placeholder="Input Bcash Wallet Adddress" size="34" type="text" />
               </fieldset>
             </div>
             <div class="col-6">
               <fieldset>
-                <img src="assets/btc_core.png" class="logo-label" alt="Bitcoin Core">
+                <img src="assets/btc.png" class="logo-label" alt="Bitcoin">
 
                 <label>
-                  <i class="fa fa-search" aria-hidden="true"></i> Bitcoin Core Address</label>
-                <input id="core-address-input" placeholder="Input BTC Wallet Adddress" size="34" type="text" />
+                  <i class="fa fa-search" aria-hidden="true"></i> Bitcoin Address</label>
+                <input id="core-address-input" placeholder="Input Bitcoin Wallet Adddress" size="34" type="text" />
               </fieldset>
             </div>
           </div>
@@ -328,7 +380,7 @@
         <div class="modal-body">
           <p>TX Highway is a blockchain visualizer originally created by two Bcash fans. The project was forked and updated.
           </p>
-          
+        
           <h4>What does all this represent?</h4>
           <ul>
           </ul>
@@ -442,7 +494,6 @@
 
     <div class="adspot ad-one">
         <h6>Your Ad Here</h6>
-      </a>
     </div>
 
     <div class="adspot ad-two ad-logo">
