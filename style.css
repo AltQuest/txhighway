@@ -1111,11 +1111,11 @@ span.divider {
 
 .bcash {
   background: url('assets/bg/bcash-logo.png') no-repeat center 33%;
-  background-size: 8%;
+  background-size: 6%;
   height: 5.36%;
   width: 100%;
   position: absolute;
-  bottom: 33.34%;
+  bottom: 15.00%;
   left: 0;
   z-index: -1;
 }
