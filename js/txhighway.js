@@ -72,12 +72,18 @@ let audioMotorcycle = null,
 	audioSemi = null,
 	audioMercy = null,
 	audioRide = null,
+	audioHodlgang1 = null,
 	audioChaChing = null,
 	audioLaCucaracha = null,
 	audioSpam = null,
 	audioAllSpam = null,
 	audioHorns = null,
-	audioLaugh = null;
+	audioLaugh = null,
+	audioStarman1 = null,
+	audioStarman2 = null,
+	audioStarman3 = null,
+	audioLightning = null,
+	audioSegwit = null;
 
 // constants
 let WIDTH = null,
@@ -231,6 +237,10 @@ function init(){
 	carUserCore.src = "assets/sprites/tx-taxi.png";
 	carSpam.src = "assets/sprites/spam.png";
 	carSegwit.src = "assets/sprites/segwit.png";
+	carLambo.src = "assets/sprites/lambo.png";
+	carTesla.src = "assets/sprites/tesla.png";
+	carLimo.src = "assets/sprites/limo.png";
+	carLightning.src = "assets/sprites/lightning.png";
 
 	// hide signes on small screens
 	if(mobileCheck()) {
@@ -255,12 +265,18 @@ function init(){
 	loadSound("assets/audio/semi-pass.mp3", "semi");
 	loadSound("assets/audio/mercy-6s.mp3", "mercy");
 	loadSound("assets/audio/ride-dirty-7s.mp3", "ride");
+	loadSound("assets/audio/hodlgang1.mp3", "hodlgang1");
 	loadSound("assets/audio/cha-ching.mp3", "cha-ching")
 	loadSound("assets/audio/la-cucaracha.mp3", "la-cucaracha");
 	loadSound("assets/audio/spam.mp3", "spam");
 	loadSound("assets/audio/allspam.mp3", "allspam");
 	loadSound("assets/audio/horns.mp3", "horns");
 	loadSound("assets/audio/evil-laugh.mp3", "laugh");
+	loadSound("assets/audio/starman1.mp3", "starman1");
+	loadSound("assets/audio/starman2.mp3", "starman2");
+	loadSound("assets/audio/starman3.mp3", "starman3");
+	loadSound("assets/audio/segwit.mp3", "segwit");
+	loadSound("assets/audio/lightning.mp3", "lightning");
 
 	// set initial volume
 	gainNode.gain.setTargetAtTime(VOLUME, audioContext.currentTime, 0.015);
@@ -561,8 +577,19 @@ function getCar(valueOut, donation, isCash, userTx, sdTx, sw){
 		return carLambo;
 	}
 
-	if(sw) return carSegwit;
-	
+	if (sw == "LN") {
+		return carLightning;
+	} else if(sw) {
+		return carSegwit;
+	}
+
+	var fancyCars = [carLambo, carTesla, carLimo]
+
+	if (!isCash && Math.random() >= 0.97) {
+		return fancyCars[Math.floor(Math.random()*fancyCars.length)];
+	}
+
+
 	// satoshi bones tx
 	if(sdTx) return carSatoshiBones;	
 
@@ -571,7 +598,7 @@ function getCar(valueOut, donation, isCash, userTx, sdTx, sw){
 		if (isCash){
 			return carUserCash;
 		} else {
-			return carUserCore;
+			return carUserCash;
 		}
 	}
 
@@ -631,6 +658,8 @@ function getCar(valueOut, donation, isCash, userTx, sdTx, sw){
 
 // add sounds to sound array for playback
 function addSounds(carType){
+	if (!isVisible) return;
+
 	if (carType == carUserCash || carType == carUserCore) {
 		playSound(audioLaCucaracha);
 	}
@@ -638,15 +667,24 @@ function addSounds(carType){
 	if (carType == carSatoshiBones){
 		playSound(audioLaugh);
 	}
+	if (carType == carLightning){
+		playSound(audioLightning);
+	}
 
 	if (carType == carLambo){
-		let randSong = Math.floor(Math.random() * 2) + 1;
-		
-		if (randSong == 1){		
-			playSound(audioMercy);
-		} else {
-			playSound(audioRide);
+		var songs = [audioMercy, audioRide, audioHodlgang1]
+		let randSong = songs[Math.floor(Math.random()*songs.length)];
+			playSound(randSong);
+	}
+
+	if (carType == carTesla){
+		var songs = [audioStarman1, audioStarman2, audioStarman3]
+		let randSong = songs[Math.floor(Math.random()*songs.length)];
+			playSound(randSong);
 		}
+
+	if (carType == carSegwit){
+		playSound(audioSegwit);
 	}
 
 	if (carType == carMicroCash || carType == carMicroCore){
@@ -705,6 +743,8 @@ function loadSound(url, sound){
 				audioMercy = buffer;
 			} else if (sound == "ride"){
 				audioRide = buffer;
+			} else if (sound == "hodlgang1"){
+				audioHodlgang1 = buffer;
 			} else if (sound == "cha-ching"){
 				audioChaChing = buffer;
 			} else if (sound == "la-cucaracha"){
@@ -715,6 +755,16 @@ function loadSound(url, sound){
 				audioAllSpam = buffer;
 			} else if(sound == "laugh") {
 				audioLaugh = buffer;
+			} else if(sound == "starman1") {
+				audioStarman1 = buffer;
+			} else if(sound == "starman2") {
+				audioStarman2 = buffer;
+			} else if(sound == "starman3") {
+				audioStarman3 = buffer;
+			} else if(sound == "segwit") {
+				audioSegwit = buffer;
+			} else if(sound == "lightning") {
+				audioLightning = buffer;
 			} else if (sound == "horns"){
 				audioHorns = audioContext.createBufferSource();
 				audioHorns.buffer = buffer;
@@ -838,16 +888,48 @@ function drawVehicles(arr){
 			y = (item.lane * SINGLE_LANE) - SINGLE_LANE;
 			width = SINGLE_LANE * (car.width / car.height);
 
-			// segwit swerving
-			if (item.car == carSegwit){
+			// lightning train
+			if (item.lane == 3){
+
+				let spd = SPEED * 3;
+				item.x += spd;
+
 				if (!item.y) item.y = 0;
 				if (!item.d) item.d = 0.3;
 				let top = SINGLE_LANE * (item.lane - 1) - SINGLE_LANE/4;
 				let bottom = SINGLE_LANE * (item.lane - 1) + SINGLE_LANE/4;
-				if (y + item.y > bottom) item.d = -0.3;
-				if (y + item.y < top) item.d = 0.3;
-				item.y += (item.d * dt);
+				if (y + item.y > bottom) item.d = -0.0;
+				if (y + item.y < top) item.d = 0.0;
+				item.y += item.d;
 				y += item.y;
+			} else if (item.lane == 5.2) {
+				let spd = SPEED * 50;
+				item.x += spd;
+				ctx.drawImage(car, item.x-1800, y, width, SINGLE_LANE);
+				ctx.drawImage(car, item.x-1500, y, width, SINGLE_LANE);
+				ctx.drawImage(car, item.x-1200, y, width, SINGLE_LANE);
+				ctx.drawImage(car, item.x-900, y, width, SINGLE_LANE);
+				ctx.drawImage(car, item.x-600, y, width, SINGLE_LANE);
+				ctx.drawImage(car, item.x-300, y, width, SINGLE_LANE);
+				ctx.drawImage(car, item.x, y, width, SINGLE_LANE);
+
+
+			} else {
+
+				if (item.isCash){
+
+					let spd = SPEED * 0.001;
+					item.x += spd;
+
+					if (!item.y) item.y = 0;
+					if (!item.d) item.d = 0.3;
+					let top = SINGLE_LANE * (item.lane - 2) - SINGLE_LANE/2;
+					let bottom = SINGLE_LANE * (item.lane - 2) + SINGLE_LANE/2;
+					if (y + item.y > bottom) item.d = -0.6;
+					if (y + item.y < top) item.d = 0.6;
+					item.y += item.d;
+					y += item.y;
+				}
 			}
 			ctx.drawImage(car, item.x, y, width, SINGLE_LANE);
 			
@@ -856,10 +938,10 @@ function drawVehicles(arr){
 		}
 
 		if(item.isCash){
-			item.x += (SPEED * dt);
+			item.x += SPEED;
 		} else {
-			let spd = (SPEED * SPEED_MODIFIER);
-			item.x += (spd * dt);
+			let spd = SPEED * SPEED_MODIFIER;
+			item.x += spd;
 			isCash = false;
 			
 		}
