@@ -1184,13 +1184,24 @@ span.divider {
 .bs {
   /*background: #9EA0A3 url(assets/bg/bs.png) no-repeat center 0;*/
     background: url(assets/bg/bitcoin.png) no-repeat center top;
-  background-size: auto 40%;
-  height: 13.34%;
+  background-size: auto 60%;
+  height: 19.34%;
   width: 100%;
-  position: fixed;
+  position: absolute;
   top: 14.34%;
   left: 0;
   z-index: -1;
+}
+
+.segwit {
+  position: fixed;
+  z-index: -1;
+  background: url('assets/segwit.png') no-repeat;
+  background-size: auto 10%;
+  width: 100%;
+  height: 40%;
+  left: 5%;
+  top: 15%;
 }
 
 .core-road-sign.road-sign {

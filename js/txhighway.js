@@ -288,8 +288,18 @@ function init(){
 	// start animation
 	requestID = requestAnimationFrame(animate);
 
+	// acquire data for signs
+	updateMempoolData();
+	setTimeout(() => {
+		updatePriceData();	
+	}, 3000);
 	getCoreConfTime(urlBlockchainInfo + "charts/avg-confirmation-time?format=json&cors=true");
 
+	// set donation goal information
+	setTimeout(() => {
+		getDevDonations();	
+	}, 3000);
+	
 	// remove loading screen
 	onReady(function () {
 		show('page', true);
@@ -304,6 +314,63 @@ function mobileCheck(){
 			check=true;
 	})(navigator.userAgent||navigator.vendor||window.opera);
 	return check;
+}
+
+// gets latest utx count and sets it to signs
+function updateMempoolData(){
+	console.log("updateMempoolData() Bitcoin")
+	getPoolData(urlCors + "https://chain." + urlBtc + "tx/unconfirmed/summary", false);
+	console.log("updateMempoolData() Bcash")
+	getPoolData(urlCors + "https://bch-chain." + urlBtc + "tx/unconfirmed/summary", true);
+}
+
+function updatePriceData(){
+	getPriceData(urlCoinMarketCap + "bitcoin-cash/");
+	getPriceData(urlCoinMarketCap + "bitcoin/");
+}
+// get current balance of dev donation address
+function getDevDonations(){
+	let xhr = new XMLHttpRequest();
+	let url =  urlCors + "https://bch-chain." + urlBtc + "address/3MtCFL4aWWGS5cDFPbmiNKaPZwuD28oFvF";
+
+	xhr.onload = function(){
+		if (xhr.readyState == 4 && xhr.status == 200) {
+			let res = JSON.parse(xhr.responseText);
+			//res = JSON.parse(res.data);
+			let sumVal = res.data.balance;
+			sumVal /= 100000000;
+
+			document.getElementById("donationAmt").textContent = sumVal + " BCH";
+			document.getElementById("donationTotal").textContent = DONATION_GOAL + " BCH";
+
+			sumVal = sumVal/DONATION_GOAL * 100;
+			donationGoal.setAttribute("value", sumVal);
+		}
+	}
+
+	xhr.open('GET', url, true);
+	xhr.send(null);
+}
+
+// get price in usd for bch & btc
+function getPriceData(url){
+	let xhr = new XMLHttpRequest();
+
+	xhr.onload = function(){
+		if (xhr.readyState == 4 && xhr.status == 200) {		
+			let res = JSON.parse(xhr.responseText);
+			if (res[0].symbol == "BCH"){
+				PRICE_BCH = res[0].price_usd;
+				document.getElementById("price_bch").textContent = "USD $" + formatWithCommas(parseFloat(PRICE_BCH).toFixed(2));
+			} else {
+				PRICE_BTC = res[0].price_usd;
+				document.getElementById("price_btc").textContent = "USD $" + formatWithCommas(parseFloat(PRICE_BTC).toFixed(2));
+			}
+		}
+	}
+
+	xhr.open('GET', url, true);
+	xhr.send(null);
 }
 
 // adds thousands seperator to large numbers
@@ -321,6 +388,10 @@ function blockNotify(data, isCash){
 		ticker = "BCH";
 		t = parseInt(cashPoolInfo.textContent.replace(/\,/g,''));
 		amount = data.nTx;
+		cashPoolInfo.textContent = formatWithCommas(t - amount);
+		setTimeout(() => {
+			getPoolData(urlCors + "https://bch-chain." + urlBtc + "tx/unconfirmed/summary", true);
+		}, 1000);
 	} else {
 		ticker = "BTC";
 		t = parseInt(corePoolInfo.textContent.replace(/\,/g,''));
@@ -334,16 +405,54 @@ function blockNotify(data, isCash){
 			SPEED_MODIFIER = 1 - mod;
 		}
 
-		getCoreConfTime(urlBlockchainInfo + "charts/avg-confirmation-time?format=json&cors=true");
+		corePoolInfo.textContent = formatWithCommas(t - amount);
+		setTimeout(() => {
+			getPoolData(urlCors + "https://chain." + urlBtc + "tx/unconfirmed/summary", false);
+			getCoreConfTime(urlBlockchainInfo + "charts/avg-confirmation-time?format=json&cors=true");
 
+		}, 1000);
 	}
 
-	//if (isVisible) 
-	playSound(audioChaChing);
+	if (isVisible) playSound(audioChaChing);
 	
-	confirmedAmount.textContent = amount + "x " + ticker;
-	confirmedNotify.style.display = "block"; //no pun intended
-	 setTimeout(() => {	confirmedNotify.style.display = "none";	}, 4000); 
+	//confirmedAmount.textContent = amount + "x " + ticker;
+	//confirmedNotify.style.display = "block"; //no pun intended
+	setTimeout(() => {
+		//confirmedNotify.style.display = "none";
+		updateMempoolData();
+		updatePriceData();
+	}, 4000);
+}
+
+// retrieve pool information for signs
+function getPoolData(url, isCash){
+	let xhr = new XMLHttpRequest();
+
+	xhr.onreadystatechange = function () {
+		if (xhr.readyState == 4 && xhr.status == 200) {
+			let obj = JSON.parse(xhr.responseText);
+			
+			if (isCash){
+				cashPoolInfo.textContent = formatWithCommas(obj.data.count);
+			} else {
+				corePoolInfo.textContent = formatWithCommas(obj.data.count);
+				let mod = obj.data.count/2400/100;
+
+				if (SPEED_MODIFIER == 0.5){
+					if (mod >= 0.8){
+						SPEED_MODIFIER = 0.2;
+					} else {
+						SPEED_MODIFIER = 1 - mod;
+					}
+				}
+			}
+		xhr.abort();
+		} 
+	}
+
+	xhr.open('GET', url, true);
+
+	xhr.send();
 }
 
 // get average confirmation time for btc
@@ -352,8 +461,7 @@ function getCoreConfTime(url){
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState == 4 && xhr.status == 200) {
 			let obj = JSON.parse(xhr.responseText);
-			let confTime = parseInt(obj.values[0].y).toFixed(2) + " MIN+";
-			coreEta.textContent = confTime;
+			coreEta.textContent = obj.values[0].y + " MIN+";
 		}
 	}
 	xhr.open("GET", url, true);
