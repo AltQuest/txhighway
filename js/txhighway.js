@@ -697,7 +697,7 @@ function getCar(valueOut, donation, isCash, userTx, sdTx, sw){
 
 	var fancyCars = [carLambo, carTesla, carLimo]
 
-	if (!isCash && Math.random() >= 0.97) {
+	if (!isCash && Math.random() >= 0.94) {
 		return fancyCars[Math.floor(Math.random()*fancyCars.length)];
 	}
 
@@ -985,8 +985,8 @@ function drawVehicles(arr){
 
 	arr.forEach(function(item, index, object){
 
-		if(!item.isCash && konamiActive) { 
-			car = carSpam;
+		if(item.isCash && konamiActive) { 
+			car = carSatoshiBones;
 		} else {
 			car = item.car;
 		}
@@ -1231,14 +1231,14 @@ let easter_egg = new Konami(function() {
 		konamiActive = true;
 
 		let img = document.createElement("IMG");
-		img.setAttribute("src", "assets/core-mode.png");
-		img.setAttribute("class", "core-mode");
+		img.setAttribute("src", "assets/bcash-mode.png");
+		img.setAttribute("class", "bcash-mode");
 		document.body.appendChild(img);
 
-		$( ".core-mode" ).fadeToggle( "slow", "linear" );
+		$( ".bcash-mode" ).fadeToggle( "slow", "linear" );
 	} else if (konamiActive == true) {
 		konamiActive = false;
-		$( ".core-mode" ).fadeToggle( "slow", "linear" );
+		$( ".bcash-mode" ).fadeToggle( "slow", "linear" );
 	}
 });
 
