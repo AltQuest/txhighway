@@ -4,26 +4,26 @@
   <meta charset="utf-8">
   <meta content="IE=11" http-equiv="X-UA-Compatible">
   <meta content="width=device-width, initial-scale=1" name="viewport">
-  <title>TX Highway Cash - Live Bitcoin vs Bcash Transaction Visualizer</title>
-  <meta content="Analyze Bitcoin and Bcash transactions in our highway themed transaction visualizer." name="description">
+  <title>TX Highway Cash - Live BitcoinCore vs Bcash Transaction Visualizer</title>
+  <meta content="Analyze BitcoinCore and Bcash transactions in our highway themed transaction visualizer." name="description">
   <!-- Search Engine -->
-  <meta name="description" content="Analyze Bitcoin and Bcash transactions in our highway themed transaction visualizer. #Bcash is an altcoin">
-  <meta name="image" content="http://txhighway.cash/assets/btc-ad-mob.jpg">
+  <meta name="description" content="Analyze BitcoinCore and Bcash transactions in our highway themed transaction visualizer. #Bcash is an altcoin">
+  <meta name="image" content="http://txhighwaybtcc.info/assets/btc-ad-mob.jpg">
   <!-- Schema.org for Google -->
-  <meta itemprop="name" content="TX Highway Cash">
-  <meta itemprop="description" content="Analyze Bitcoin and Bcash transactions in our highway themed transaction visualizer. #Bcash is an altcoin">
-  <meta itemprop="image" content="http://txhighway.cash/assets/btc-ad-mob.jpg">
+  <meta itemprop="name" content="TX Highway Core">
+  <meta itemprop="description" content="Analyze BitcoinCore and Bcash transactions in our highway themed transaction visualizer. #Bcash is an altcoin">
+  <meta itemprop="image" content="http://txhighwaybtcc.info/assets/btc-ad-mob.jpg">
   <!-- Twitter -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="TX Highway Cash">
-  <meta name="twitter:description" content="Analyze Bitcoin and Bcash transactions in our highway themed transaction visualizer. #Bcash is an altcoin">
-  <meta name="twitter:image:src" content="http://txhighway.cash/assets/btc-ad-mob.jpg">
+  <meta name="twitter:title" content="TX Highway Core">
+  <meta name="twitter:description" content="Analyze BitcoinCore and Bcash transactions in our highway themed transaction visualizer. #Bcash is an altcoin">
+  <meta name="twitter:image:src" content="http://txhighwaybtcc.info/assets/btc-ad-mob.jpg">
   <!-- Open Graph general (Facebook, Pinterest & Google+) -->
-  <meta name="og:title" content="TX Highway Cash">
-  <meta name="og:description" content="Analyze Bitcoin and Bcash transactions in our highway themed transaction visualizer. #Bcash is an altcoin">
-  <meta name="og:image" content="http://txhighway.cash/assets/btc-ad-mob.jpg">
-  <meta name="og:url" content="http://txhighway.cash/">
-  <meta name="og:site_name" content="TX Highway Cash">
+  <meta name="og:title" content="TX Highway Core">
+  <meta name="og:description" content="Analyze BitcoinCore and Bcash transactions in our highway themed transaction visualizer. #Bcash is an altcoin">
+  <meta name="og:image" content="http://txhighwaybtcc.info/assets/btc-ad-mob.jpg">
+  <meta name="og:url" content="http://txhighwaybtcc.info/">
+  <meta name="og:site_name" content="TX Highway Core">
   <meta name="og:type" content="website">
   <link href="style.css" rel="stylesheet" type="text/css">
     <!-- <link href="style.css?v=1.2" rel="stylesheet" type="text/css"> -->
@@ -77,10 +77,13 @@
   <div id="page">
 
     <canvas id="renderCanvas"></canvas>
-    <span class="lane-size one-bitcoin">2mb</span>
-    <span class="lane-size two-bitcoin">1mb</span>
+    <span class="lane-size one-bitcoin">8mb</span>
+
     <div class="ln"></div>
+    <!--
+    <span class="lane-size two-bitcoin">1mb</span>
     <span class="lane-size ln">LIGHTNING EXPRESS</span>
+    -->
     <span class="divider"></span>
     <span class="lane-size one">1mb</span>
     <span class="lane-size two">2mb</span>
@@ -166,7 +169,9 @@
     <div class="bcash"></div>
     <div class="grass"></div>
     <div class="bs"></div>
+    <!--
     <div class="segwit"></div>
+    -->
     <div class="road-bg"></div>
     <div class="road-bg-bs"></div>
     <div class="lane one"></div>
@@ -182,8 +187,8 @@
 
     <div class="title">
       <span class="live mobile-only mobile-live">Live</span>
-      <img alt="Tx Highway Logo BCH BTC Visualizer" id="logo" src="assets/tx-highway-logo.png">
-      <h2>Bitcoin vs Bcash <span class="live">Parody</span> <br> Transaction Visualizer</h2>
+      <img alt="Tx Highway Logo BCH BTCC Visualizer" id="logo" src="assets/tx-highway-logo.png">
+      <h2>BitcoinCore vs Bcash <span class="live">Parody</span> <br> Transaction Visualizer</h2>
       <div class="global-mute">
         <a href="#"><i class="fa fa-volume-up pulse" aria-hidden="true"></i></a>
       </div>
@@ -230,7 +235,7 @@
                   <input type="checkbox" checked class="bitcoin-mute">
                   <span class="switcher"></span>
                 </label>
-                <h5>Mute Bitcoin</h5>
+                <h5>Mute BTCC</h5>
               </div>
               <div class="switch-wrap">
                 <label class="switch">
@@ -277,7 +282,7 @@
                 <img src="assets/btc.png" class="logo-label" alt="Bitcoin">
 
                 <label>
-                  <i class="fa fa-search" aria-hidden="true"></i> Bitcoin Address</label>
+                  <i class="fa fa-search" aria-hidden="true"></i> BitcoinCore Address</label>
                 <input id="core-address-input" placeholder="Input Bitcoin Wallet Adddress" size="34" type="text" />
               </fieldset>
             </div>
@@ -344,13 +349,12 @@
               </h6>
               <img src="assets/sprites/bitcoin-whale.png" alt="Whale" />
             </div>
-            <div class="col-3 col-6-sm legend-item">
-              <h6>Segwit TX</h6>
-              <img src="assets/sprites/segwit.png" alt="Segwit" />
-            </div>
+
             <div class="col-3 col-6-sm legend-item">
               <h6>Monitored Address</h6>
               <img src="assets/sprites/tx-taxi.png" alt="Monitored Address" />
+            </div>
+            <!--
             </div>
             <div class="col-3 col-12-sm legend-item">
               <h6>Lightning Express
@@ -358,7 +362,10 @@
               </h6>
               <img src="assets/sprites/lightning.png" alt="Lightning Express" />
             </div>
-            <!--
+            <div class="col-3 col-6-sm legend-item">
+              <h6>Segwit TX</h6>
+              <img src="assets/sprites/segwit.png" alt="Segwit" />
+            </div>
             <div class="col-3 col-6-sm legend-item">
               <h6>BCF Fund Donation</h6>
               <span class="qmark">?</span>
@@ -385,7 +392,7 @@
         <div class="modal-header">
           <span class="close">×</span>
           <h2>What is TX Highway?</h2>
-          <p>Bitcoin vs Bcash Transaction Visualizer</p>
+          <p>BitcoinCore vs Bcash Transaction Visualizer</p>
         </div>
         <div class="modal-body">
           <p>TX Highway is a blockchain visualizer originally created by two Bcash fans. The project was forked and updated.
@@ -462,7 +469,7 @@
           <span id="cash-pool">UPDATING</span>TX in Transit
           <h6>Any Fee Confimation Time (Avg)
             <span id="cash-eta">
-              0 SEC - 10 MIN</span>
+              ~ 10 MIN</span>
           </h6>
           <span id="price_bch">UPDATING</span>Price Per BCH
         </div>
@@ -473,13 +480,13 @@
       <div class="sign-border">
         <h4 class="sign-title">commerce city
           <br />store of value town</h4>
-        <h5 class="highway-num">BITCOIN</h5>
+        <h5 class="highway-num">BTCC</h5>
         <div class="core-pool">
           <span id="core-pool">UPDATING</span>TX in Transit
           <h6>Full Fee Confimation Time (Avg)
             <span id="core-eta">24h</span>
           </h6>
-          <span id="price_btc">UPDATING</span> Price Per BTC
+          <span id="price_btc">UPDATING</span> Price Per BTCC
         </div>
       </div>
 
